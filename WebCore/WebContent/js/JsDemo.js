@@ -50,43 +50,42 @@ function initAll() {
 }
 
 function addNode() {
-	var inText = document.getElementById("textArea").value;
-	var newText = document.createTextNode(inText);
-	var newGraf = document.createElement("p");
-	newGraf.appendChild(newText);
-	var docBody = document.getElementsByTagName("body")[0];
-	docBody.appendChild(newGraf);
+	var inText = document.getElementById("textArea").value;  //得到要添加的值
+	var newText = document.createTextNode(inText);         //创建一个文本节点，内容是要添加的值
+	var newGraf = document.createElement("p");             //创建一个<p>标签
+	newGraf.appendChild(newText);                          //将上述文本节点添加到标签里面
+	var docBody = document.getElementsByTagName("body")[0];  //确定要进行操作的地方
+	docBody.appendChild(newGraf);                          //将节点加入到需要操作的地方
 
 	return false; // 此处不可以省略，起到抑制默认行为的作用
 }
-
 function delNode() {
-	var allGrafs = document.getElementsByTagName("p");
+	var allGrafs = document.getElementsByTagName("p");    //得到需要进行删除的部分
 	if (allGrafs.length > 1) {
-		var lastGraf = allGrafs.item(allGrafs.length - 1)
-		var docBody = document.getElementsByTagName("body")[0]
-		docBody.removeChild(lastGraf)
+		var lastGraf = allGrafs.item(allGrafs.length - 1)       //得到要删除的部分
+		var docBody = document.getElementsByTagName("body")[0]  //确定需要进行操作的位置
+		docBody.removeChild(lastGraf)                      //将节点从需要操作的地方删除
 	}
 	// return false;
 }
 
 function insertBeforeDemo() {
-	var newItem = document.createElement("LI");
-	var textnode = document.createTextNode("MMM");
-	newItem.appendChild(textnode)
+	var newItem = document.createElement("LI");        // 创建一个<li>标签
+	var textnode = document.createTextNode("MMM");     //创建一个文本节点
+	newItem.appendChild(textnode)                     //将文本节点添加到<li>标签中去
 
-	var list = document.getElementById("List");
-	list.insertBefore(newItem, list.childNodes[0]);
+	var list = document.getElementById("List");      //得到要进行操作的部分
+	list.insertBefore(newItem, list.childNodes[0]);  //在旧节点前插入新节点
 	return false;
 }
 
 function replaceChildDemo() {
-	var newItem = document.createElement("LI");
-	var textnode = document.createTextNode("YYY");
-	newItem.appendChild(textnode)
+	var newItem = document.createElement("LI");      // 创建一个<li>标签
+	var textnode = document.createTextNode("YYY");    //创建一个文本节点
+	newItem.appendChild(textnode)                      //将文本节点添加到<li>标签中去
 	
-	var list = document.getElementById("List");
-	list.replaceChild(newItem, list.childNodes[0]);
+	var list = document.getElementById("List");         //得到要进行操作的部分
+	list.replaceChild(newItem, list.childNodes[0]);      //在旧节点前插入新节点
 	return false;
 }
 
